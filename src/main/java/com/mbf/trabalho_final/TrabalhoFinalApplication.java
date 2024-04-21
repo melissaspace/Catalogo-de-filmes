@@ -8,6 +8,7 @@ public class TrabalhoFinalApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TrabalhoFinalApplication.class, args);
+		System.out.println("Hello!");
 	}
 
 }
