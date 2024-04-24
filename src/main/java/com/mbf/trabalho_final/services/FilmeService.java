@@ -1,13 +1,10 @@
 package com.mbf.trabalho_final.services;
 
+import java.util.Optional;
+
 import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.mbf.trabalho_final.entities.Filme;
 import com.mbf.trabalho_final.repositories.FilmeRepository;
@@ -17,27 +14,44 @@ public class FilmeService {
     @Autowired
     private FilmeRepository repository;
     
-    @GetMapping
-    public java.util.List<Filme>listar(){
+    public java.util.List<Filme> listarFilmes(){
         return repository.findAll();
     }
     
-    @PostMapping
-    public String salvar(@RequestBody Filme filme){
-        repository.save(filme);
-        return "Filme salvo com sucesso!";
+    public Filme buscarFilme(long id_filme) {
+        Optional<Filme> optionalFilme = repository.findById(id_filme);
+        return optionalFilme.orElseThrow(() -> new RuntimeException());
     }
 
-    @PutMapping
-    public String alterar(@RequestBody Filme filme){
-        if(filme.getId_filme()>0)
+    public String cadastrarFilme(Filme filme){
         repository.save(filme);
+        return "Filme cadastrado com sucesso!";
+    }
+
+    public String alterarFilme(long id_filme, Filme filme){
+        Optional<Filme> optionalFilme = repository.findById(id_filme);
+        if (optionalFilme.isEmpty()) {
+            return "Filme não encontrado.";
+        }
+        Filme filmeExistence = optionalFilme.get();
+        filmeExistence.setTitulo(filme.getTitulo());
+        filmeExistence.setDirecao(filme.getDirecao());
+        filmeExistence.setData_lancamento(filme.getData_lancamento());
+        filmeExistence.setSinopse(filme.getSinopse());
+        filmeExistence.setClassificacao(filme.getClassificacao());
+        filmeExistence.setImg(filme.getImg());
+
+        repository.save(filmeExistence);
         return "Filme alterado com sucesso!";
     }
 
-    @DeleteMapping
-    public String excluir(@RequestBody Filme filme){
-        repository.delete(filme);
+    public String removerFilme(long id_filme){
+        Optional<Filme> optionalFilme = repository.findById(id_filme);
+
+        if (optionalFilme.isEmpty()) {
+            return "Filme não encontrado.";
+        }
+        repository.delete(optionalFilme.get());
         return "Filme excluído com sucesso!";
     }  
 }
