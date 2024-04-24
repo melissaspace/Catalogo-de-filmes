@@ -39,7 +39,6 @@ public class FilmeService {
         filmeExistence.setData_lancamento(filme.getData_lancamento());
         filmeExistence.setSinopse(filme.getSinopse());
         filmeExistence.setClassificacao(filme.getClassificacao());
-        filmeExistence.setImg(filme.getImg());
 
         repository.save(filmeExistence);
         return "Filme alterado com sucesso!";

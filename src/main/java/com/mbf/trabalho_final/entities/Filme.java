@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
@@ -21,16 +22,14 @@ public class Filme {
     private String data_lancamento;
     private String sinopse;
     private String classificacao;
-    private String img;
 
     //CONSTRUTORES
     public Filme() {
-        setTitulo(titulo);
+       setTitulo(titulo);
         setDirecao(direcao);
         setData_lancamento(data_lancamento);
         setSinopse(sinopse);
         setClassificacao(classificacao);
-        setImg(img);
     }
 
     //GETTERS
@@ -58,9 +57,6 @@ public class Filme {
         return classificacao;
     }
 
-    public String getImg() {
-        return img;
-    }
 
     //SETTERS
     public void setId_filme(long id_filme) {
@@ -87,12 +83,8 @@ public class Filme {
         this.classificacao = classificacao;
     }
 
-    public void setImg(String img) {
-        this.img = img;
-    }
 
-
-    @OneToMany
+    @ManyToOne
     @JoinColumn (name="id_genero", nullable = false) //Adiciona a chave estrangeira "id_genero" na tabela Filme
     private Genero genero;
     @OneToOne
