@@ -25,6 +25,12 @@ public class Filme {
 
     //CONSTRUTORES
     public Filme() {
+        setTitulo(titulo);
+        setDirecao(direcao);
+        setData_lancamento(data_lancamento);
+        setSinopse(sinopse);
+        setClassificacao(classificacao);
+        setImg(img);
     }
 
     //GETTERS
@@ -85,46 +91,6 @@ public class Filme {
         this.img = img;
     }
 
-    //MÉTODOS - INCOMPLETO
-    public String cadastrarFilme(long id_filme, String titulo, String direcao, String data_lancamento, String sinopse, String classificacao, String img) {
-        setTitulo(titulo);
-        setDirecao(direcao);
-        setData_lancamento(data_lancamento);
-        setSinopse(sinopse);
-        setClassificacao(classificacao);
-        setImg(img);
-        
-        //Caso tudo seja preenchido, o úsuario recebe uma mensagem positiva:
-        if (titulo != null && direcao != null && data_lancamento != null && sinopse != null && classificacao != null && img != null) {
-            return ("Filme cadastrado com sucesso!");
-        } else {
-            return ("Erro ao cadastrar filme.");
-        }
-    }
-
-    /* public String alterarFilme() {
-        return ("Filme alterado com sucesso!");
-    }
-
-    public String removerFime() {
-        try {
-
-        } catch () {
-
-        }
-    }*/
-
-    public String buscarFilme(long id_filme) {
-
-        //Precisa pegar o Id e mostrar
-        return("Id: " + getId_filme() + "\n" +
-        "Título: " + getTitulo() + "\n" +
-        "Direção: " + getDirecao() + "\n" +
-        "Data de lançamento: " + getData_lancamento() + "\n" +
-        "Sinopse: " + getSinopse() + "\n" +
-        "Classificação: " + getClassificacao() + "\n" +
-        "Imagem de capa: " + getImg() );
-    }
 
     @OneToMany
     @JoinColumn (name="id_genero", nullable = false) //Adiciona a chave estrangeira "id_genero" na tabela Filme

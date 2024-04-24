@@ -16,6 +16,12 @@ public class Adm {
     private String senha;
     private String status_login;
 
+    public Adm() {
+        setUser_name(user_name);
+        setSenha(senha);
+        setStatus_login(status_login);
+    }
+
     //GETTERS
     public String getUser_name() {
         return user_name;
@@ -43,7 +49,7 @@ public class Adm {
     }
 
     //MÉTODOS - INCOMPLETO
-    /*public void logar() {}
+   /* public void logar() {}
     public boolean verificarLogin(String user_name, String senha) {
         setUser_name(user_name);
         setSenha(senha);

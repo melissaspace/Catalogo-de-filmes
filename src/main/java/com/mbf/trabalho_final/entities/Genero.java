@@ -14,7 +14,9 @@ public class Genero {
     private String nome;
 
     //CONSTRUTORES
-    public Genero() {}
+    public Genero() {
+        setNome(nome);
+    }
 
     //GETTERS
     public String getNome() {
@@ -25,10 +27,6 @@ public class Genero {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    //MÉTODOS - INCOMPLETO
-    /*public String listarGeneros() {}
-    public String removerGenero() {}*/
 
     @OneToMany(mappedBy = "genero") //Chave estrangeira gerada na entidade Filme
     private Filme filme;
