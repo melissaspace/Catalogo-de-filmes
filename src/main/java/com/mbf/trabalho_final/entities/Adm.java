@@ -2,6 +2,9 @@ package com.mbf.trabalho_final.entities;
 
 
 import java.util.List;
+
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.Entity;
 //import jakarta.persistence.GeneratedValue;
 //import jakarta.persistence.GenerationType;
@@ -9,7 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Adm {
+public class Adm implements UserDetails {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String user_name;
