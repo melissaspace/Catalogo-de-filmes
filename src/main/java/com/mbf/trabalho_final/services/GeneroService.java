@@ -14,7 +14,6 @@ public class GeneroService {
     @Autowired
     private GeneroRepository repository;
     
-    //MÉTODOS
     public java.util.List<Genero> listarGeneros() {
         return repository.findAll();
     }
@@ -24,7 +23,7 @@ public class GeneroService {
         return optionalGenero.orElseThrow(() -> new RuntimeException());
     }
 
-    public String inserirGenero(Genero genero) {
+    public String cadastrarGenero(Genero genero) {
         repository.save(genero);
         return "Gênero inserido com sucesso!";
     }
