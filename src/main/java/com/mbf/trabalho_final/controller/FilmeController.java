@@ -15,10 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mbf.trabalho_final.entities.Filme;
-import com.mbf.trabalho_final.repositories.FilmeRepository;
 import com.mbf.trabalho_final.services.FilmeService;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @RestController
 @RequestMapping("/filme")
