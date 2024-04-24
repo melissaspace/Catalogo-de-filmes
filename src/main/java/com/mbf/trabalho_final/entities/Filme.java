@@ -1,6 +1,7 @@
 package com.mbf.trabalho_final.entities;
 
 import org.hibernate.mapping.List;
+import org.springframework.security.core.userdetails.UserDetails;
 
 //import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
@@ -12,7 +13,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
-public class Filme {
+public class Filme implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Coloca o id_filme como autoincrement
     private long id_filme;
