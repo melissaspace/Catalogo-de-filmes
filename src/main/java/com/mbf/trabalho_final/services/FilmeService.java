@@ -18,8 +18,9 @@ public class FilmeService {
         return repository.findAll();
     }
     
-    public Optional<Filme> buscarFilme(long id_filme) {
-        return repository.findById(id_filme);
+    public Filme buscarFilme(long id_filme) {
+        Optional<Filme> optionalFilme = repository.findById(id_filme);
+        return optionalFilme.orElseThrow(() -> new RuntimeException());
     }
 
     public String cadastrarFilme(Filme filme){
