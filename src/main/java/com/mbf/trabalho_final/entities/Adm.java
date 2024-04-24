@@ -19,8 +19,8 @@ public class Adm implements UserDetails {
     private String senha;
 
     public Adm() {
-        /*setUser_name(user_name);
-        setSenha(senha);*/
+        setUser_name(user_name);
+        setSenha(senha);
     }
 
     //GETTERS
