@@ -10,9 +10,10 @@ Java, Spring Boot,<br>
 Acesso ao projeto:<br>
 Acesso ao código diretamente ou download desta aplicação API Rest<br>
 Abrir e rodar o projeto:<br>
-Desenvolvedores:<br>
-![Modelo_conceitual](https://github.com/melissaspace/Catalogo-de-filmes/assets/99128614/2abb42f1-78a5-48f0-8450-9d38a91dda98)
+
+![Modelo_conceitual](https://github.com/melissaspace/Catalogo-de-filmes/assets/99128614/2abb42f1-78a5-48f0-8450-9d38a91dda98)<br>
 ![Diagrama_de_classe](https://github.com/melissaspace/Catalogo-de-filmes/assets/99128614/68022079-f39b-4cf9-a3e6-8ee33fe26512)
 
+Desenvolvedores:<br>
 Melissa Souza, Bruno Leandro, Flora Corrêa
 
