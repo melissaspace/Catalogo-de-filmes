@@ -29,6 +29,12 @@ public class AdmController {
         List<Adm> listaAdm = service.listarAdms();
         return ResponseEntity.status(HttpStatus.OK).body(listaAdm);
     }
+
+    @GetMapping("/{user_name}")
+    public ResponseEntity<Adm> buscarAdm(@PathVariable long id_adm) {
+        Adm response = service.buscarAdm(id_adm);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
         
     @PostMapping
     public ResponseEntity<String> cadastrarAdm(@RequestBody Adm adm){
