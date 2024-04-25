@@ -37,14 +37,14 @@ public class AdmController {
     }
 
     @PutMapping("/{user_name}")
-    public ResponseEntity<String> alterarAdm(@PathVariable String user_name, @RequestBody Adm adm){
-        String response = service.alterarAdm(user_name, adm);
+    public ResponseEntity<String> alterarAdm(@PathVariable long id_adm, @RequestBody Adm adm){
+        String response = service.alterarAdm(id_adm, adm);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     @DeleteMapping("/{user_name}")
-    public ResponseEntity<String> removerAdm(@PathVariable String user_name){
-        String response = service.removerAdm(user_name);
+    public ResponseEntity<String> removerAdm(@PathVariable long id_adm){
+        String response = service.removerAdm(id_adm);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }

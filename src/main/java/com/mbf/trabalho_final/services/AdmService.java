@@ -17,18 +17,24 @@ public class AdmService {
         return repository.findAll();
     }
 
+    public Adm buscarAdm(long id_adm) {
+        Optional<Adm> optionalAdm = repository.findById(id_adm);
+        return optionalAdm.orElseThrow(() -> new RuntimeException());
+    }
+
     public String cadastrarAdm(Adm adm){
         repository.save(adm);
         return "Administrador cadastrado com sucesso!";
     }
 
-    public String alterarAdm(String user_name, Adm adm){
-        Optional<Adm> optionalAdm = repository.findById(user_name);
+    public String alterarAdm(long id_adm, Adm adm){
+        Optional<Adm> optionalAdm = repository.findById(id_adm);
 
         if (optionalAdm.isEmpty()) {
             return "Administrador não encontrado.";
         }
         Adm admExistence = optionalAdm.get();
+        admExistence.setId_adm(adm.getId_adm());
         admExistence.setUser_name(adm.getUser_name());
         admExistence.setSenha(adm.getSenha());
     
@@ -36,8 +42,8 @@ public class AdmService {
         return "Administrador alterado com sucesso!";
     }
 
-    public String removerAdm(String user_name){
-        Optional<Adm> optionalAdm = repository.findById(user_name);
+    public String removerAdm(long id_adm){
+        Optional<Adm> optionalAdm = repository.findById(id_adm);
 
         if (optionalAdm.isEmpty()) {
             return "Administrador não encontrado.";
